@@ -1,6 +1,6 @@
-# Contributing to @bear-block/vision-camera-ocr
+# Contributing to @chuksdengr/vision-camera-ocr
 
-We love your input! We want to make contributing to @bear-block/vision-camera-ocr as easy and transparent as possible, whether it's:
+We love your input! We want to make contributing to @chuksdengr/vision-camera-ocr as easy and transparent as possible, whether it's:
 
 - Reporting a bug
 - Discussing the current state of the code
@@ -26,8 +26,8 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 ## Any contributions you make will be under the MIT Software License
 In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issue tracker](https://github.com/bear-block/vision-camera-ocr/issues)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/bear-block/vision-camera-ocr/issues/new); it's that easy!
+## Report bugs using Github's [issue tracker](https://github.com/ndukachukz/vision-camera-ocr/issues)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/ndukachukz/vision-camera-ocr/issues/new); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 
@@ -54,10 +54,10 @@ This document was adapted from the open-source contribution guidelines for [Face
 
 ## Development Setup
 
-To set up the development environment for @bear-block/vision-camera-ocr:
+To set up the development environment for @chuksdengr/vision-camera-ocr:
 
 ### iOS Development
-To edit the Objective-C files, open `example/ios` in Xcode and find the source files at `Pods > Development Pods > @bear-block/vision-camera-ocr`.
+To edit the Objective-C files, open `example/ios` in Xcode and find the source files at `Pods > Development Pods > @chuksdengr/vision-camera-ocr`.
 
 ### Android Development
-To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `@bear-block/vision-camera-ocr` under `Android`.
+To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `@chuksdengr/vision-camera-ocr` under `Android`.

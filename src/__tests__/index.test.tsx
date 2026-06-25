@@ -1,33 +1,25 @@
-// Mock react-native-vision-camera
-jest.mock('react-native-vision-camera', () => {
-  const mockPluginInstance = {
-    call: jest.fn(),
-  };
-  return {
-    VisionCameraProxy: {
-      initFrameProcessorPlugin: jest.fn(() => mockPluginInstance),
-    },
-  };
-});
+const mockDetectText = jest.fn();
 
-import { performOcr, type OcrOptions, type OcrResult } from '../index';
-import { VisionCameraProxy } from 'react-native-vision-camera';
+jest.mock('react-native-nitro-modules', () => ({
+  NitroModules: {
+    createHybridObject: jest.fn(() => ({
+      detectText: (...args: unknown[]) => mockDetectText(...args),
+    })),
+  },
+}));
 
-describe('@bear-block/vision-camera-ocr', () => {
+import type { Frame } from 'react-native-vision-camera';
+import { type OcrOptions, type OcrResult, performOcr } from '../index';
+
+describe('@chuksdengr/vision-camera-ocr', () => {
   const mockFrame = {
     width: 1920,
     height: 1080,
-  } as any;
-
-  // Get the mocked plugin instance
-  const getMockPlugin = () => {
-    return VisionCameraProxy.initFrameProcessorPlugin('detectText', {}) as any;
-  };
+  } as Frame;
 
   beforeEach(() => {
     jest.clearAllMocks();
-    const plugin = getMockPlugin();
-    plugin.call.mockReturnValue({ text: 'test text' });
+    mockDetectText.mockReturnValue({ text: 'test text' });
   });
 
   describe('performOcr', () => {
@@ -36,24 +28,21 @@ describe('@bear-block/vision-camera-ocr', () => {
       expect(typeof performOcr).toBe('function');
     });
 
-    it('should call plugin with frame and empty options when options not provided', () => {
-      const plugin = getMockPlugin();
+    it('should call detectText with frame and undefined options when options not provided', () => {
       performOcr(mockFrame);
-      expect(plugin.call).toHaveBeenCalledWith(mockFrame, {});
+      expect(mockDetectText).toHaveBeenCalledWith(mockFrame, undefined);
     });
 
-    it('should call plugin with frame and provided options', () => {
-      const plugin = getMockPlugin();
+    it('should call detectText with frame and provided options', () => {
       const options: OcrOptions = {
         includeBoxes: true,
         includeConfidence: true,
       };
       performOcr(mockFrame, options);
-      expect(plugin.call).toHaveBeenCalledWith(mockFrame, options);
+      expect(mockDetectText).toHaveBeenCalledWith(mockFrame, options);
     });
 
-    it('should return result from plugin call', () => {
-      const plugin = getMockPlugin();
+    it('should return result from detectText', () => {
       const result: OcrResult = {
         text: 'detected text',
         blocks: [
@@ -68,32 +57,29 @@ describe('@bear-block/vision-camera-ocr', () => {
           },
         ],
       };
-      plugin.call.mockReturnValue(result);
+      mockDetectText.mockReturnValue(result);
 
       const output = performOcr(mockFrame);
       expect(output).toEqual(result);
     });
 
-    it('should return null when plugin returns null (no text detected)', () => {
-      const plugin = getMockPlugin();
-      plugin.call.mockReturnValue(null);
+    it('should return null when detectText returns undefined (no text detected)', () => {
+      mockDetectText.mockReturnValue(undefined);
       const output = performOcr(mockFrame);
       expect(output).toBeNull();
     });
 
     it('should handle iOS-specific options', () => {
-      const plugin = getMockPlugin();
       const options: OcrOptions = {
         recognitionLevel: 'accurate',
         recognitionLanguages: ['en-US', 'vi-VN'],
         usesLanguageCorrection: true,
       };
       performOcr(mockFrame, options);
-      expect(plugin.call).toHaveBeenCalledWith(mockFrame, options);
+      expect(mockDetectText).toHaveBeenCalledWith(mockFrame, options);
     });
 
     it('should handle includeBoxes option', () => {
-      const plugin = getMockPlugin();
       const resultWithBoxes: OcrResult = {
         text: 'test',
         blocks: [
@@ -115,7 +101,7 @@ describe('@bear-block/vision-camera-ocr', () => {
           },
         ],
       };
-      plugin.call.mockReturnValue(resultWithBoxes);
+      mockDetectText.mockReturnValue(resultWithBoxes);
 
       const output = performOcr(mockFrame, { includeBoxes: true });
       expect(output).toEqual(resultWithBoxes);
@@ -124,7 +110,6 @@ describe('@bear-block/vision-camera-ocr', () => {
     });
 
     it('should handle includeConfidence option', () => {
-      const plugin = getMockPlugin();
       const resultWithConfidence: OcrResult = {
         text: 'test',
         blocks: [
@@ -140,7 +125,7 @@ describe('@bear-block/vision-camera-ocr', () => {
           },
         ],
       };
-      plugin.call.mockReturnValue(resultWithConfidence);
+      mockDetectText.mockReturnValue(resultWithConfidence);
 
       const output = performOcr(mockFrame, { includeConfidence: true });
       expect(output).toEqual(resultWithConfidence);

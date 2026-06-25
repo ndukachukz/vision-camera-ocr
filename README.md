@@ -1,4 +1,4 @@
-# @bear-block/vision-camera-ocr
+# @chuksdengr/vision-camera-ocr
 
 <div align="center">
 
@@ -17,7 +17,7 @@
 
 ## 🚀 Overview
 
-`@bear-block/vision-camera-ocr` is a powerful React Native library that provides real-time text recognition capabilities directly within your camera app. Built on top of `react-native-vision-camera`, it leverages native OCR engines for optimal performance:
+`@chuksdengr/vision-camera-ocr` is a powerful React Native library that provides real-time text recognition capabilities directly within your camera app. Built on top of `react-native-vision-camera`, it leverages native OCR engines for optimal performance:
 
 - **Android**: Powered by Google ML Kit Text Recognition
 - **iOS**: Powered by Apple's Vision Framework
@@ -46,13 +46,13 @@ Perfect for applications requiring real-time text extraction, document scanning,
 
 ```bash
 # Using yarn (recommended)
-yarn add @bear-block/vision-camera-ocr
+yarn add @chuksdengr/vision-camera-ocr
 
 # Using npm
-npm install @bear-block/vision-camera-ocr
+npm install @chuksdengr/vision-camera-ocr
 
 # Using pnpm
-pnpm add @bear-block/vision-camera-ocr
+pnpm add @chuksdengr/vision-camera-ocr
 ```
 
 ### iOS Setup
@@ -71,7 +71,7 @@ No additional setup required - the package is auto-linked.
 
 ```typescript
 import { Camera, useFrameProcessor } from 'react-native-vision-camera';
-import { performOcr } from '@bear-block/vision-camera-ocr';
+import { performOcr } from '@chuksdengr/vision-camera-ocr';
 
 function MyCameraComponent() {
   const frameProcessor = useFrameProcessor((frame) => {
@@ -98,7 +98,7 @@ function MyCameraComponent() {
 
 ```typescript
 import { Camera, useFrameProcessor } from 'react-native-vision-camera';
-import { performOcr } from '@bear-block/vision-camera-ocr';
+import { performOcr } from '@chuksdengr/vision-camera-ocr';
 
 function AdvancedCameraComponent() {
   const [detectedText, setDetectedText] = useState<string>('');
@@ -306,7 +306,7 @@ This library is perfect for:
    - Add to `android/settings.gradle`:
      ```gradle
      include ':vision-camera-ocr'
-     project(':vision-camera-ocr').projectDir = new File(rootProject.projectDir, '../node_modules/@bear-block/vision-camera-ocr/android')
+     project(':vision-camera-ocr').projectDir = new File(rootProject.projectDir, '../node_modules/@chuksdengr/vision-camera-ocr/android')
      ```
    - Add to `android/app/build.gradle` dependencies:
      ```gradle
@@ -432,7 +432,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repository
-git clone https://github.com/bear-block/vision-camera-ocr.git
+git clone https://github.com/ndukachukz/vision-camera-ocr.git
 cd vision-camera-ocr
 
 # Install dependencies
@@ -467,14 +467,14 @@ If you find this library useful and would like to support ongoing development, p
 - 💻 **Contributing** code improvements
 - 💰 **Sponsoring** us on GitHub
 
-👉 [**Become a Sponsor**](https://github.com/sponsors/bear-block)
+👉 [**Become a Sponsor**](https://github.com/sponsors/ndukachukz)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Bear Block](https://github.com/bear-block)**
+**Made with ❤️ by [ndukachukz](https://github.com/ndukachukz)**
 
-[GitHub](https://github.com/bear-block) • [Issues](https://github.com/bear-block/vision-camera-ocr/issues) • [Discussions](https://github.com/bear-block/vision-camera-ocr/discussions)
+[GitHub](https://github.com/ndukachukz) • [Issues](https://github.com/ndukachukz/vision-camera-ocr/issues) • [Discussions](https://github.com/ndukachukz/vision-camera-ocr/discussions)
 
 </div>

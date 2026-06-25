@@ -1,0 +1,24 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": ["chuksdengr", "ocr"],
+  "ignorePaths": ["**/node_modules/**", "**/lib/**", "example/**"],
+  "ios": {
+    "iosModuleName": "VisionCameraOcr"
+  },
+  "android": {
+    "androidNamespace": ["com", "chuksdengr", "visioncameraocr"],
+    "androidCxxLibName": "VisionCameraOcr"
+  },
+  "autolinking": {
+    "OcrPlugin": {
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridOcrPlugin"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridOcrPlugin"
+      }
+    }
+  }
+}

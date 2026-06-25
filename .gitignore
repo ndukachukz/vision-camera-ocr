@@ -82,5 +82,5 @@ lib/
 ios/generated
 android/generated
 
-# React Native Nitro Modules
-nitrogen/
+# Nitrogen CLI caches (generated specs are committed under nitrogen/generated)
+.nitrogen/

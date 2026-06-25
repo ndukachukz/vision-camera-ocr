@@ -5,14 +5,14 @@
 # For more information, see:
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
 
-# The default template for new issues
-default:
+blank_issues_enabled: false
+contact_links:
   - name: "Ask a question"
-    url: https://github.com/bear-block/vision-camera-ocr/discussions/new?category=ideas
+    url: https://github.com/ndukachukz/vision-camera-ocr/discussions/new?category=ideas
     about: "Ask questions and share ideas with the community"
   - name: "Report a bug"
-    url: https://github.com/bear-block/vision-camera-ocr/issues/new?template=bug_report.yml
+    url: https://github.com/ndukachukz/vision-camera-ocr/issues/new?template=bug_report.yml
     about: "Report a bug to help us improve"
   - name: "Request a feature"
-    url: https://github.com/bear-block/vision-camera-ocr/discussions/new?category=ideas
+    url: https://github.com/ndukachukz/vision-camera-ocr/discussions/new?category=ideas
     about: "Suggest an idea for this project"
