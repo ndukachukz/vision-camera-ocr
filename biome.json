@@ -1,5 +1,20 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
+  "files": {
+    "includes": [
+      "**",
+      "!!lib",
+      "!!nitrogen",
+      "!!node_modules",
+      "!!android",
+      "!!ios",
+      "!!example/node_modules",
+      "!!example/ios",
+      "!!example/android",
+      "!!example/assets",
+      "!!example/.expo"
+    ]
+  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
